@@ -24,6 +24,7 @@ h1{
     background-color: rgb(255, 255, 255);
     height: 100vh;
     flex-direction: column;
+    /* add a css animation */
    
 }
  .card{
