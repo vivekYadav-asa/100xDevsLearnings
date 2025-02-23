@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Bg-Color-Changer</h1>
+     <div class="card">
+        <button onclick="changeColor('#FF0000')">Red</button>
+        <button onclick="changeColor('#0000FF')">Blue</button>
+        <button onclick="changeColor('#00FF00')">Green</button>
+        <button onclick="changeColor(' #FFFF00')">Yellow</button>
+        <button onclick="changeColor('#FFC0CB')">Pink</button>
+
+     </div>
+    </div>
+</body>
+ <script>
+    function changeColor(color){
+        document.getElementById("container").style.backgroundColor=color;
+    } 
+</script>
+</html>

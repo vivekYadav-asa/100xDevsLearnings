@@ -1,0 +1,92 @@
+<!-- < <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input  type="text"></input>
+    <button onclick="AddTODO()">Add TODO!</button>
+    <script>
+        function AddTODO(){
+            const inputEl=document.querySelector("input");
+            const value=inputEl.value;
+            const divEl=document.createElement("div");
+             divEl.innerHTML=value;
+             const div1=document.createElement("div");
+             div1.innerHTML=`<button id="todo" onclick="DeleteTODO()">delete</button>`;
+             document.querySelector("body").appendChild(divEl);
+             document.querySelector("body").appendChild(div1);
+        }
+        
+       function DeleteTODO(){
+     const Element=document.getElementById("todo");
+     Element.innerHTML="";
+     Element.parentNode.removeChild(Element);
+       }
+    </script>
+</body>
+</html>  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>todo list</h1>
+    <div id="todoParent">
+        <div id="todo-1">
+            <h4>take class</h4>
+            <button onclick="deleteTodo(1)">delete</button>
+        </div>
+        <div id="todo-2">
+            <h4>attend class</h4>
+            <button onclick="deleteTodo(2)">delete</button>
+        </div>
+    </div>
+    <div>
+        <input type="text"></input>
+        <button>Addtodo</button>
+    </div>
+   
+    <script>
+        function deleteTodo(index){
+            const element=document.getElementById("todo-"+index);
+            document.getElementById("todoParent").removeChild(element);
+        }
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"></input>
+    <button onclick="AddTODO()">ADD TODO</button>
+    <script>
+        let ctr=0;
+        function DeleteTODO(index){
+            const Element=document.getElementById("todo"+index);
+            Element.parentNode.removeChild(Element);
+        }
+        function AddTODO(){
+            const inputEl=document.querySelector("input");
+            const value =inputEl.value;
+            const newDiv=document.createElement("div");
+           newDiv.setAttribute("id","todo",ctr);
+           ctr=ctr=1;
+           newDiv.innerHTML="<div>"+value+'</div><button onclick="DeleteTODO('+ctr+')">delete</button>';
+           document.querySelector("body").appendChild(newDiv);
+        }
+   </script>
+
+</body>
+</html> -->
