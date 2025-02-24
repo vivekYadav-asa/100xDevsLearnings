@@ -12,9 +12,13 @@ body {
     
     
 }
-h1{
-    font-weight: 2px;
+.h1{
+    font-weight: 7rem;
     color: black;
+}
+.h2{
+ font-weight: 7rem;
+ color: rgb(5, 63, 66);
 }
 #container{
     display: flex;
@@ -22,26 +26,25 @@ h1{
     align-items: center;
     border: 1px solid black;
     background-color: rgb(255, 255, 255);
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     /* add a css animation */
    
 }
  .card{
-    padding:10px;
+    padding:20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: white;
     border:1px solid black;
     border-radius: 2rem;
     height: 10vh;
-    width: 90vh;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100vh;
+    box-shadow: 0 4px 8px 0 rgba(182, 157, 218, 0.2), 0 6px 20px 0 rgba(135, 106, 189, 0.19);
 } 
 button {
     padding: 12px 20px;
-    background-color: #3498db;
     border: none;
     border-radius: 8px;
     color: #FFF;
@@ -49,6 +52,22 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 120px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#bt1{
+    background-color: red;
+}
+#bt2{
+    background-color:blue;
+}
+#bt3{
+    background-color:green;
+}
+#bt4{
+    background-color: yellow;
+}
+#bt5{
+    background-color:pink;
 }
 
 button:hover {
