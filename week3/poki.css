@@ -1,0 +1,121 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: bisque;
+        }
+        
+        .container {
+            height: 100vh;
+            width: 100%;
+            background-image: url('backgorund.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        
+        .navbar h1 {
+            color: white;
+           
+        }
+        
+        .navbar input {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            width: 200px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        
+        .navbar button {
+            background-color:rgb(49, 5, 78);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            
+        }
+        a{
+            color: white;
+            
+        }
+        
+        button:hover {
+            background-color: #45086e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+            background-image: url('poke.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 300px;
+            position: relative;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color:rgb(59 32 135);;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 1.2;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+        }
+        
+        .search-form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .search-form button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+    
