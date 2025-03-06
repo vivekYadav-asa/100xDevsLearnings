@@ -18,6 +18,7 @@
         <button id="bt3" onclick="changeColor('#00FF00')">Green</button>
         <button id="bt4" onclick="changeColor(' #FFFF00')">Yellow</button>
         <button id="bt5" onclick="changeColor('#FFC0CB')">Pink</button>
+        <input type="color" id="colorPicker" onchange="changeColorFromPicker()">
 
      </div>
     </div>
@@ -27,5 +28,10 @@
     function changeColor(color){
         document.getElementById("container").style.backgroundColor=color;
     } 
+    function changeColorFromPicker() {
+            var value = document.getElementById("colorPicker").value;
+            document.getElementById("container").style.backgroundColor = value;
+        }
+    
 </script>
 </html>

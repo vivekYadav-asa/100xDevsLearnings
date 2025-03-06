@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Fetch API</h1>
+<h2>The fetch() Method</h2>
+<p id="demo">Fetch a file to change this text.</p>
+
+<script>
+async function data(){
+let response= await fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+let jsonData=await response.json()
+console.log(data);
+
+
+document.getElementById("demo").innerHTML=  JSON.stringify(jsonData)
+}
+data()
+</script>
+
+</body>
+</html>
