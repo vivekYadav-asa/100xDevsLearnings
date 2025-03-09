@@ -668,5 +668,121 @@
             </form>
         </div>
     </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('jobModal');
+    const addJobBtn = document.getElementById('addJobBtn');
+    const closeModal = document.getElementById('closeModal');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const exportBtn = document.getElementById('exportBtn');
+    const exportOptions = document.getElementById('exportOptions');
+    const jobForm = document.getElementById('jobForm');
+    const jobTable = document.getElementById('jobTable');
+    
+    // Show modal for adding new job
+    addJobBtn.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        document.querySelector('.modal-title').textContent = 'Add New Job Application';
+        jobForm.reset();
+        jobForm.dataset.editing = ''; // Reset editing state
+    });
+    
+    // Close modal function
+    function closeModalFunc() {
+        modal.style.display = 'none';
+    }
+    closeModal.addEventListener('click', closeModalFunc);
+    cancelBtn.addEventListener('click', closeModalFunc);
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) closeModalFunc();
+    });
+    
+    // Toggle export options dropdown
+    exportBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        exportOptions.style.display = exportOptions.style.display === 'block' ? 'none' : 'block';
+        exportOptions.style.top = (exportBtn.offsetTop + exportBtn.offsetHeight) + 'px';
+        exportOptions.style.left = exportBtn.offsetLeft + 'px';
+    });
+    document.addEventListener('click', function() {
+        exportOptions.style.display = 'none';
+    });
+    
+    // Event delegation for edit and delete buttons
+    jobTable.addEventListener('click', function(e) {
+        if (e.target.classList.contains('edit-btn')) {
+            modal.style.display = 'flex';
+            document.querySelector('.modal-title').textContent = 'Edit Job Application';
+            
+            const row = e.target.closest('tr');
+            document.getElementById('company').value = row.cells[0].textContent.trim();
+            document.getElementById('position').value = row.cells[1].textContent.trim().split('\n')[0];
+            document.getElementById('appliedDate').value = row.dataset.appliedDate || '2025-03-02';
+            document.getElementById('status').value = row.cells[3].querySelector('.status').textContent.toLowerCase();
+            
+            jobForm.dataset.editing = row.dataset.rowId;
+        }
+        
+        if (e.target.classList.contains('delete-btn')) {
+            if (confirm('Are you sure you want to delete this job application?')) {
+                e.target.closest('tr').remove();
+            }
+        }
+    });
+    
+    // Handle form submission (Add/Edit functionality)
+    jobForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const company = document.getElementById('company').value.trim();
+        const position = document.getElementById('position').value.trim();
+        const appliedDate = document.getElementById('appliedDate').value;
+        const status = document.getElementById('status').value;
+        
+        if (!company || !position) {
+            alert('Please fill out all required fields.');
+            return;
+        }
+        
+        if (jobForm.dataset.editing) {
+            const row = document.querySelector(`[data-row-id='${jobForm.dataset.editing}']`);
+            row.cells[0].textContent = company;
+            row.cells[1].textContent = position;
+            row.dataset.appliedDate = appliedDate;
+            row.cells[3].querySelector('.status').textContent = status;
+        } else {
+            const newRow = document.createElement('tr');
+            newRow.dataset.rowId = Date.now();
+            newRow.dataset.appliedDate = appliedDate;
+            newRow.innerHTML = `
+                <td>${company}</td>
+                <td>${position}</td>
+                <td>${appliedDate}</td>
+                <td><span class='status'>${status}</span></td>
+                <td>
+                    <button class='edit-btn'>Edit</button>
+                    <button class='delete-btn'>Delete</button>
+                </td>
+            `;
+            jobTable.querySelector('tbody').appendChild(newRow);
+        }
+        
+        alert('Job application saved successfully!');
+        closeModalFunc();
+    });
+    
+    // Export functionality
+    document.getElementById('exportCSV').addEventListener('click', function() {
+        alert('Exporting report as CSV...');
+    });
+    document.getElementById('exportPDF').addEventListener('click', function() {
+        alert('Exporting report as PDF...');
+    });
+    document.getElementById('exportExcel').addEventListener('click', function() {
+        alert('Exporting report as Excel...');
+    });
+});
+    </script>
 </body>
 </html>
