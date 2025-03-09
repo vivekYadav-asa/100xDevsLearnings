@@ -78,20 +78,11 @@
             box-shadow: none;
         }
         
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 5;
-        }
+    
     </style>
 </head>
 <body>
-    <div id="overlay"></div>
+   
     
     <div id="login">
         <div class="input-group">
@@ -107,6 +98,10 @@
             <button id="cancelBtn" onclick="closeLogin()">Cancel</button>
             <button id="loginBtn">Login</button>
         </div>
+        <div id="preview">
+            <p id="name"></p>
+            
+        </div>
     </div>
     
     <button onclick="showLogin()">Login to your account</button>
@@ -114,12 +109,11 @@
     <script>
         function showLogin() {
             document.getElementById("login").style.display = "flex";
-            document.getElementById("overlay").style.display = "block";
+          
         }
         
         function closeLogin() {
             document.getElementById("login").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
         }
     </script>
 </body>
