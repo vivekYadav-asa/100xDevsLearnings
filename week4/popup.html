@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishingShield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="../assets/icon48.png" alt="PhishingShield Logo" class="logo">
+      <h1>PhishingShield</h1>
+    </div>
+    
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-value" id="scans-completed">0</div>
+        <div class="stat-label">Scans Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="threats-detected">0</div>
+        <div class="stat-label">Threats Detected</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Protection Status</h2>
+      <div class="status-indicator active">
+        <span class="status-dot"></span>
+        <span class="status-text">Active</span>
+      </div>
+      <p>PhishingShield is currently monitoring links on this page.</p>
+    </div>
+    
+    <div class="card">
+      <h2>Settings</h2>
+      
+      <div class="setting-item">
+        <label for="gmail-toggle">Gmail Protection</label>
+        <label class="toggle">
+            <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label for="linkedin-toggle">LinkedIn Protection</label>
+        <label class="toggle">
+          <input type="checkbox" id="linkedin-toggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label for="notifications-toggle">Notifications</label>
+        <label class="toggle">
+          <input type="checkbox" id="notifications-toggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label for="scan-level">Scan Level</label>
+        <select id="scan-level">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high" selected>High</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Recent Threats</h2>
+      <div id="recent-threats">
+        <div class="empty-state">
+          No threats detected recently
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+        <button id="view-dashboard">View Full Dashboard</button>
+      </div>
+    </div>
+    
+    <script src="popup.js"></script>
+  </body>
+  </html>
+  
