@@ -90,7 +90,6 @@ function formatUrl(url) {
   }
 }
 
-// Open dashboard
 function openDashboard() {
   chrome.tabs.create({ url: 'https://phishingshield.com/dashboard' });
 }    
