@@ -80,15 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 }
 
-// Format URL for display
-function formatUrl(url) {
-  try {
-    const urlObj = new URL(url);
-    return urlObj.hostname + urlObj.pathname.substring(0, 15) + (urlObj.pathname.length > 15 ? '...' : '');
-  } catch (e) {
-    return url.substring(0, 30) + (url.length > 30 ? '...' : '');
-  }
-}
+
+
 
 function openDashboard() {
   chrome.tabs.create({ url: 'https://phishingshield.com/dashboard' });
