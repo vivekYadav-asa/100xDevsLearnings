@@ -50,16 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Load recent threats
-  function loadRecentThreats() {
-    chrome.storage.local.get('recentThreats', function(data) {
-      const recentThreats = data.recentThreats || [];
-      const container = document.getElementById('recent-threats');
-      
-      if (recentThreats.length === 0) {
-        container.innerHTML = '<div class="empty-state">No threats detected recently</div>';
-        return;
-      }
+
       
       container.innerHTML = '';
       
