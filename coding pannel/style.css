@@ -82,7 +82,7 @@ h1{
 .gradient-txt{
     background: linear-gradient(to right, #fff, #0081ff);
     -webkit-text-fill-color: transparent;
-    /* -webkit-background-clip: text; */
+    -webkit-background-clip: text;
 }
 main .sub-txt{
     margin-top: 0.75rem;
