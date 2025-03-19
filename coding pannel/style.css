@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styling */
+navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(15, 15, 15, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo a {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.logo span {
+    background: linear-gradient(to right, #4d8cff, #00c3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.compiler-btn, .social-btn, .cta-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.compiler-btn {
+    background: linear-gradient(to right, #4d8cff, #00c3ff);
+    color: #ffffff;
+}
+
+.social-btn {
+    border: 1px solid #4d8cff;
+    color: #ffffff;
+}
+
+.compiler-btn:hover, .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(77, 140, 255, 0.3);
+}
+
+.social-btn:hover {
+    background-color: rgba(77, 140, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Main Section Styling */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 5%;
+}
+
+h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.gradient-txt {
+    background: linear-gradient(to right, #4d8cff, #00c3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cta-btn {
+    background: linear-gradient(to right, #4d8cff, #00c3ff);
+    color: #ffffff;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Footer Styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    border-top: 1px solid #2a2a2a;
+    margin-top: auto;
+}
+
+.logo-and-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-txt {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #4d8cff;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .logo-and-details {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .compiler-btn, .social-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
