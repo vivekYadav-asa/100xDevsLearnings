@@ -12,6 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     background-image: url(bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 /* Navbar Styling */
@@ -23,13 +25,15 @@ navbar {
     background-color: rgba(15, 15, 15, 0.9);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 20;
 }
 
 .logo a {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.2;
     color: #ffffff;
     text-decoration: none;
 }
