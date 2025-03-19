@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url(bg2.jpg);
 }
 
 /* Navbar Styling */
@@ -93,14 +94,14 @@ h1 {
 }
 
 .gradient-txt {
-    background: linear-gradient(to right, #4d8cff, #00c3ff);
+    background: linear-gradient(to right, #5605a1, #540ed5);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 .cta-btn {
-    background: linear-gradient(to right, #4d8cff, #00c3ff);
+    background: linear-gradient(to right, #5d37a9, #46008b);
     color: #ffffff;
     font-size: 1.2rem;
     padding: 0.8rem 2rem;
@@ -141,7 +142,7 @@ footer {
 }
 
 .social-icons a:hover {
-    color: #4d8cff;
+    color: #4b2766;
     transform: translateY(-3px);
 }
 
