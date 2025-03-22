@@ -16,7 +16,7 @@ body {
     background-size: 100%;
 }
 
-/* Navbar Styling */
+
 navbar {
     display: flex;
     justify-content: space-between;
@@ -203,7 +203,7 @@ body {
     flex-direction: column;
 }
 
-/* Navbar Styling */
+
 navbar {
     display: flex;
     justify-content: space-between;
@@ -304,7 +304,7 @@ navbar {
     box-shadow: 0 5px 15px rgba(77, 140, 255, 0.3);
 }
 
-/* Main Editor Section */
+
 .editor {
     flex: 1;
     display: flex;
@@ -335,7 +335,6 @@ h1 {
     font-size: 1.1rem;
 }
 
-/* Pen animation */
 .pen {
     display: inline-block;
     width: 24px;
@@ -363,7 +362,6 @@ h1 {
     }
 }
 
-/* Container for Code Editor */
 .container {
     display: flex;
     gap: 20px;
@@ -461,7 +459,7 @@ textarea::placeholder {
     border-radius: 0 0 10px 10px;
 }
 
-/* Cool glow effect on load */
+
 .html-code, .css-code, .js-code {
     animation: glowPulse 3s infinite alternate;
 }
@@ -475,7 +473,7 @@ textarea::placeholder {
     }
 }
 
-/* Staggered animation on load */
+
 .html-code {
     animation-delay: 0s;
 }
@@ -488,7 +486,6 @@ textarea::placeholder {
     animation-delay: 1s;
 }
 
-/* Footer Styling */
 footer {
     display: flex;
     justify-content: space-between;
@@ -555,7 +552,7 @@ footer {
     }
 }
 
-/* Responsive Styles */
+
 @media screen and (max-width: 992px) {
     .container {
         flex-direction: column;
