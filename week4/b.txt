@@ -1,0 +1,4 @@
+but what if you want to expose this logic to the world
+this is where http(hyper text transfer protocal) comes into the picture
+it lets you create a- hospital where people can come aand find you
+how to create http we can through express
