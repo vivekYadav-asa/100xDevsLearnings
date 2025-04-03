@@ -108,7 +108,7 @@ function isOldEnough(age){
         return false;
     }
 }
-app.get('./ride1',function(req ,res){
+app.get('/ride1',function(req ,res){
 if(isOldEnough(req.query.age)){
     res.json({
         msg:'you are elgible for this ride',
@@ -120,4 +120,4 @@ else{
     })
 }
 })
-app.listen(3001)
+app.listen(3005)
