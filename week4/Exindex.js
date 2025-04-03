@@ -100,15 +100,19 @@ maddleware  can be reused
 const express =require('express')
 const app =express();
 //function that returns a boolean true if age is more than 14
-function isOldEnough(age){
+function isOldEnoughMiddleWare(req,res,next){
+    const age =req.query.age
     if(age>=14){
-        return true;
+       next();
     }
     else{
-        return false;
+        res.status(411).json({
+            msg:'you are not oldenough yet'
+        })
     }
 }
-app.get('/ride1',function(req ,res){
+app.get('/ride1',function(req ,res){// either you can call the middleware function inside the app.get or
+//  you want you can declare outside and above it only the above case will work correctly
 if(isOldEnough(req.query.age)){
     res.json({
         msg:'you are elgible for this ride',
