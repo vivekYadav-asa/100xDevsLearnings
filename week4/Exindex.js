@@ -111,17 +111,12 @@ function isOldEnoughMiddleWare(req,res,next){
         })
     }
 }
-app.get('/ride1',function(req ,res){// either you can call the middleware function inside the app.get or
-//  you want you can declare outside and above it only the above case will work correctly
-if(isOldEnough(req.query.age)){
+app.use(isOldEnoughMiddleWare)
+app.get('/ride1',  isOldEnoughMiddleWare,function(req ,res){// either you can call the middleware function inside the app.get or
+//  you want you can declare outside and above it only the above case will work correctly only tigger all the things below it
+
     res.json({
         msg:'you are elgible for this ride',
     })
-}
-else{
-    res.status(411).json({
-        msg:'you are not oldenough yet'
-    })
-}
 })
 app.listen(3005)
