@@ -10,3 +10,4 @@ app.get('/add/:a/:b',function(req,res){
     })
 })
 app.listen(3000)
+// better routing ,add database,middleware
