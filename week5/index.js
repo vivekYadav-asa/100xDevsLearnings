@@ -2,9 +2,11 @@
 //  about the request and response such as content type and auth information etc.
 const express=require('express')
 const app=express();
-app.get('/sum',function(req,res){
+app.get('/add/:a/:b',function(req,res){
+    const a=parseInt(req.params.a);
+    const b=parseInt(req.params.b);
     res.json({
-        msg:'done'
+       answer:a+b
     })
 })
-app.listen(3001)
+app.listen(3000)
