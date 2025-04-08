@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendRequest(){
+            axios.post("http://localhost:3000/sum"{
+                a:document.getElementById("a").value,
+                b:document.getElementById("b").value
+            })
+           
+        }
+    </script>
 </head>
 <body>
-    linkdein
-    <div id="posts"></div>
+ <input id="a" type="text" placeholder="first-value">
+ <input id="b" type="text" placeholder="second-value">
+ <button onclick="sendRequest()">find sum</button>
     <!-- <script>
         // fetch api 
     //     console.log("before processing the data");
@@ -25,13 +35,13 @@
     //     }
     //     getLinkdein();
     // </script> -->
-    <script>
+    <!-- <script>
           async function getLinkdein(){
         const response=  await axios.get("https://jsonplaceholder.typicode.com/posts/1")
         document.getElementById("posts").innerHTML=response.data.title
           }
           getLinkdein();
-    </script>
+    </script> -->
     
 </body>
 </html>

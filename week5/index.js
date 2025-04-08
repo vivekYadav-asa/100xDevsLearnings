@@ -27,31 +27,30 @@ const app=express();
 // })
 // app.listen(3000)
 // logs the method ,timestamp and the url 
- function loggerMiddle(req,res,next){
-    console.log("method is "+req.method);
-    console.log("host is " + req.hostname);
-    console.log("route is"+req.url);
+//  function loggerMiddle(req,res,next){
+//     console.log("method is "+req.method);
+//     console.log("host is " + req.hostname);
+//     console.log("route is"+req.url);
     
-    console.log(new Date());
-    next(); 
+//     console.log(new Date());
+//     next(); 
     
- }
-app.use(loggerMiddle )
-
-app.get('/add',function(req,res){
-        requestIncrease()
+//  }
+// app.use(loggerMiddle )
+app.use(express.json());
+app.post('/sum',function(req,res){
         const a=parseInt(req.params.a);
         const b=parseInt(req.params.b);
         res.json({
            answer:a+b
         })
     })
-    app.get('/multiply',function(req,res){
-        requestIncrease();
-        const a=parseInt(req.params.a);
-        const b=parseInt(req.params.b);
-        res.json({
-           answer:a*b
-        })
-    })
+   //  app.get('/multiply',function(req,res){
+   //      requestIncrease();
+   //      const a=parseInt(req.params.a);
+   //      const b=parseInt(req.params.b);
+   //      res.json({
+   //         answer:a*b
+   //      })
+   //  })
     app.listen(3000)
