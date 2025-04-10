@@ -1,5 +1,6 @@
 // authentication 
 const express = require('express')
+const jwt = require("jsonwebtoken") 
 const JWT_SECRET="randomharkiratiLove"
 const app=express();
 app.use(express.json())
@@ -24,7 +25,7 @@ console.log(username);
 
 users.push(
     {
-        userName:username,
+        username:username,
         password:password
     }
 )
@@ -40,7 +41,7 @@ app.post("/signin", (req, res) => {
 //   m2 for finding the user is same or not to whom we have to return a token 
   let userFound=null;
   for(let i=0; i<users.length;i++){
-  if(users[i].userName==userName && users[i].password==password){
+  if(users[i].username==username && users[i].password==password){
   userFound=users[i];
   }
   }
@@ -77,16 +78,16 @@ app.get('/me',function(req,res){
 const token=req.headers.token;
 const decodedInformation=jwt.verify(token,JWT_SECRET);//{username:"harkiart"}
 const username=decodedInformation.username;
-let Founduser=null;
+let userFound=null;
 for(let i=0; i<users.length;i++){
     if(users[i].username==username){
-        Founduser=user[i];
+        userFound=users[i];
     }
 }
-if(Founduser){
+if(userFound){
     res.json({
-        username:Founduser.username,
-        password:Founduser.password
+        username:userFound.username,
+        password:userFound.password
     })
 }
 else{
@@ -96,4 +97,4 @@ else{
 }
 })
 
-app.listen(3004);
+app.listen(3003);
