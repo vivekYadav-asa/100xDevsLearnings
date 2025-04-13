@@ -74,27 +74,35 @@ app.post("/signin", (req, res) => {
     console.log(users);
     
 });
-app.get('/me',function(req,res){
-const token=req.headers.token;
-const decodedInformation=jwt.verify(token,JWT_SECRET);//{username:"harkiart"}
-const username=decodedInformation.username;
+//using middleware instead of calling same function again and again in all routes
+function auth(req,res,next){
+    const token=req.headers.token;
+    const decodedData=jwt.verify(token,JWT_SECRET);
+    if(decodedData.username){
+        req.username=decodedData.username
+        next();
+    }
+    else{
+        res.json({
+            message:"you are not logged in"
+        })
+    }
+}
+app.get('/me',Auth,function(req,res){
+// const token=req.headers.token;
+// const decodedInformation=jwt.verify(token,JWT_SECRET);//{username:"harkiart"}
+// const username=decodedInformation.username;
 let userFound=null;
 for(let i=0; i<users.length;i++){
-    if(users[i].username==username){
+    if(users[i].username==req.username){
         userFound=users[i];
     }
 }
-if(userFound){
+
     res.json({
         username:userFound.username,
         password:userFound.password
     })
-}
-else{
-    res.json({
-        msg:"inalied token "
-    })
-}
 })
 
 app.listen(3003);
