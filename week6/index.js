@@ -5,6 +5,10 @@ const JWT_SECRET="randomharkiratiLove"
 const app=express();
 app.use(express.json())
 const users=[];
+function logger(req,res,next){
+    console.log(req.method+"request came");
+    next();
+}
 // console.log(users);
 
 // function generateToken() {
@@ -18,7 +22,8 @@ const users=[];
 //     }
 //     return token;
 // }
-app.post('/signup',function(req,res){
+//localhost 30002
+app.post('/signup',logger,function(req,res){
 const username=req.body.username;
 const password=req.body.password;
 console.log(username);
@@ -34,7 +39,7 @@ res.json({
 })
 })
 
-app.post("/signin", (req, res) => {
+app.post("/signin",logger, (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     
@@ -88,7 +93,7 @@ function auth(req,res,next){
         })
     }
 }
-app.get('/me',Auth,function(req,res){
+app.get('/me',logger,auth,function(req,res){
 // const token=req.headers.token;
 // const decodedInformation=jwt.verify(token,JWT_SECRET);//{username:"harkiart"}
 // const username=decodedInformation.username;
@@ -105,4 +110,4 @@ for(let i=0; i<users.length;i++){
     })
 })
 
-app.listen(3003);
+app.listen(3002);
