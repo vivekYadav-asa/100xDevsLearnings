@@ -9,7 +9,7 @@
     async  function signup(){
  const username=document.getElementById("user-username").value;
  const password=document.getElementById("user-password").value;
-  await axios.post("http://localhost:3002/signup",{
+  await axios.post("http://localhost:3003/signup",{
     username:username,
     password:password
  });
@@ -18,11 +18,27 @@
       async  function signin(){
  const username=document.getElementById("signin-username").value;
  const password=document.getElementById("signin-password").value;
- await axios.post("http://localhost:3002/signin",{
+const response= await axios.post("http://localhost:3003/signin",{
     username:username,
     password:password
  });
- alert("you are signup");
+ localStorage.setItem("token",response.data.token);
+ alert("you are signin");
+ getUserinformation();
+        }
+        async function getUserinformation(){
+     const response= await axios.get("http://localhost:3003/me",{
+        headers:{
+            token:localStorage.getItem("token"),
+        }
+        
+       })
+       document.getElementById("information").innerHTML="username:"+ response.data.username +"password:"+response.data.password;
+        }
+        
+        function logout(){
+            localStorage.removeItem('token');
+            alert("you are logout");
         }
     </script>
 </head>
@@ -41,7 +57,7 @@
     </div>
     <div>
         User information: 
-        <div id="information"></div>
+        <button id="information"></button>
     </div>
     <div>
         <button onclick="logout()">Logout</button>

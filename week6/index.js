@@ -108,9 +108,8 @@ for(let i=0; i<users.length;i++){
 }
 
     res.json({
-        username:userFound.username,
-        password:userFound.password
+        username:userFound.username
     })
 })
 
-app.listen(3002);
+app.listen(3003);
