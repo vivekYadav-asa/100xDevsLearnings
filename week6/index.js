@@ -22,7 +22,10 @@ function logger(req,res,next){
 //     }
 //     return token;
 // }
-//localhost 30002
+//localhost 3002
+app.get('/',function(req,res){
+    res.sendFile(__dirname+"/public/index.html");
+})
 app.post('/signup',logger,function(req,res){
 const username=req.body.username;
 const password=req.body.password;
