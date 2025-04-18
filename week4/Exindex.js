@@ -56,23 +56,25 @@
 // NPM(node package manager), for js used for managing library/external dependencies/packages(reusable code)
 //can deploy my package at npm registory
 
-// const express=require('express')
+const express=require('express')
 
-// function calculateSum(n){
-//     let ans=0;
-// for(let i=0; i<=n;i++){
-//     ans=ans+i;
-// }
-// return ans;
-// }
-// const app=express();
-// app.get("/",function(req,res){
-//     const n=req.query.n;
-//     const ans=calculateSum(n);
-//     res.send(ans);
+function calculateSum(n){
+    let ans=1;
+for(let i=1; i<=n;i++){
+    ans=ans*i;
+}
+return ans;
+}
+const app=express();
+app.get("/",function(req,res){
+    const n=req.query.n;
+    const ans=calculateSum(n);
+    res.json({
+      mesage:ans
+    })
 
-// })
-// app.listen(3000)//deciding the add
+})
+app.listen(3001)//deciding the add
 // request methods
 // get ,push ,put, delete
 //learn about filters
@@ -154,27 +156,27 @@
 // middleware
 /*
 maddleware  can be reused 
-*/
-const express =require('express')
-const app =express();
-//function that returns a boolean true if age is more than 14
-function isOldEnoughMiddleWare(req,res,next){
-    const age =req.query.age
-    if(age>=14){
-       next();
-    }
-    else{
-        res.status(411).json({
-            msg:'you are not oldenough yet'
-        })
-    }
-}
-app.use(isOldEnoughMiddleWare)
-app.get('/ride1',  isOldEnoughMiddleWare,function(req ,res){// either you can call the middleware function inside the app.get or
-//  you want you can declare outside and above it only the above case will work correctly only tigger all the things below it
+// */
+// const express =require('express')
+// const app =express();
+// //function that returns a boolean true if age is more than 14
+// function isOldEnoughMiddleWare(req,res,next){
+//     const age =req.query.age
+//     if(age>=14){
+//        next();
+//     }
+//     else{
+//         res.status(411).json({
+//             msg:'you are not oldenough yet'
+//         })
+//     }
+// }
+// app.use(isOldEnoughMiddleWare)
+// app.get('/ride1',  isOldEnoughMiddleWare,function(req ,res){// either you can call the middleware function inside the app.get or
+// //  you want you can declare outside and above it only the above case will work correctly only tigger all the things below it
 
-    res.json({
-        msg:'you are elgible for this ride',
-    })
-})
-app.listen(3005)
+//     res.json({
+//         msg:'you are elgible for this ride',
+//     })
+// })
+// app.listen(3005)
