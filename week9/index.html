@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // function onButtonPress(){
+    //     const currentValue=document.getElementById("btn").innerHTML;
+    //     console.log(currentValue.split(" "));
+    //     const currentCounter=currentValue.split(" ")[1];
+    //     const newCounter=parseInt(currentCounter) + 1;
+    //     document.getElementById("btn").innerHTML="Counter " +newCounter;
+        
+    // }
+    let state={
+        count :0,
+        color:"red"
+}
+function onButtonPress(){
+    state.count=state.count+1;
+    state.color="red";
+    buttonComponentReRender()
+}
+function buttonComponentReRender(){
+    document.getElementById("buttonPress").innerHTML="";
+    const component=buttonComponent(state.count,state.color);
+    document.getElementById("buttonPress").appendChild(compnent);
+}
+function buttonComponent(count,color){
+    const button =document.createElement('button');
+    button.innerHTML="Counter " + count;
+    button.setAttribute("onclick",`onButtonPress()`);
+    button.setAttribute("style",`background-color:` +color);
+    return button;
+}
+buttonComponentReRender()
+</script>
+<body>
+     <div id="buttonPress"></div>
+    <!-- <button onclick="onButtonPress()" id="btn">Counter 0</button> -->
+</body>
+</html>
