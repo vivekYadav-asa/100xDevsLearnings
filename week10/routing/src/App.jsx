@@ -2,7 +2,7 @@
 // function App(){
 // return <div>
 
-import { useRef, useState } from "react"
+// import { useRef, useState } from "react"
 
 // <BrowserRouter>
 // <Link to="/"> ALLEN </Link>
@@ -34,19 +34,57 @@ import { useRef, useState } from "react"
 // }
 // }
 // import{useRef} from 'react'
-function App(){
-    const inputRef=useRef()
-    function FocusOn(){
-        // document.getElementById("name").focus()
-inputRef.current.focus()
-    }
-    return <div>
-        SignUP<br />
-    <input ref={inputRef} type={"text"} />
-    <input type={"text"} />
-    <button onClick={FocusOn}>sumbit</button>
+//useRef-refference to the value,such that when you change the value the component does not re-render
+// function App(){
+//     const inputRef=useRef()
+//     function FocusOn(){
+//         // document.getElementById("name").focus()
+// inputRef.current.focus()
+//     }
+//     return <div>
+//         SignUP<br />
+//     <input ref={inputRef} type={"text"} />
+//     <input type={"text"} />
+//     <button onClick={FocusOn}>sumbit</button>
+//     </div>
+// }
+
+// export default App
+// ugly code
+// a clock with start and stop button
+import React, { useState } from 'react';
+
+function App() {
+  const [time, setTime] = useState(0);
+  const [intervalId, setIntervalId] = useState(null); // Use state to store the interval ID
+
+  const startTimer = () => {
+    if (intervalId !== null) return; // Already running, do nothing
+
+    const newIntervalId = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000);
+    
+    // Store the interval ID in state (triggers re-render)
+    setIntervalId(newIntervalId);
+  };
+
+  const stopTimer = () => {
+    clearInterval(intervalId);
+
+    // Clear the interval ID in state (triggers re-render)
+    setIntervalId(null);
+  };
+
+  return (
+    <div>
+      <h1>Timer: {time}</h1>
+      <button onClick={startTimer}>Start</button>
+      <button onClick={stopTimer}>Stop</button>
     </div>
+  );
 }
 
-export default App
+export default App;
+
 
